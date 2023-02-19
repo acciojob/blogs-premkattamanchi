@@ -1,5 +1,7 @@
 package com.driver.models;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class User{
 
     //creating bi-directional relation with child entity blog
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonIgnore
     List<Blog> blogsList=new ArrayList<>();
     public User() {
     }

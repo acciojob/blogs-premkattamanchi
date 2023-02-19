@@ -1,5 +1,6 @@
 package com.driver.models;
 
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,6 +29,7 @@ public class  Blog{
 
     //bi-directionla mapping for child Image
     @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
+    @JsonIgnore
     List<Image> imagesList=new ArrayList<>();
 
     public Blog() {
