@@ -20,7 +20,7 @@ public class User{
     //creating bi-directional relation with child entity blog
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     @JsonIgnore
-    List<Blog> blogsList=new ArrayList<>();
+    List<Blog> blogList=new ArrayList<>();
     public User() {
     }
 
@@ -71,11 +71,11 @@ public class User{
         this.lastName = lastName;
     }
 
-    public List<Blog> getBlogsList() {
-        return blogsList;
+    public List<Blog> getBlogList() {
+        return blogList;
     }
 
-    public void setBlogsList(List<Blog> blogsList) {
-        this.blogsList = blogsList;
+    public void setBlogList(List<Blog> blogList) {
+        this.blogList = blogList;
     }
 }

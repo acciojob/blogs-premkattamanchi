@@ -18,9 +18,7 @@ public class  Blog{
     private String title;
     private String content;
     @CreationTimestamp
-    private Date createdOn;
-    @UpdateTimestamp
-    private Date updatedOn;
+    private Date pubDate;
 
     //creating foreign key for parent table User
     @ManyToOne
@@ -30,7 +28,7 @@ public class  Blog{
     //bi-directionla mapping for child Image
     @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
     @JsonIgnore
-    List<Image> imagesList=new ArrayList<>();
+    List<Image> imageList=new ArrayList<>();
 
     public Blog() {
     }
@@ -72,11 +70,19 @@ public class  Blog{
         this.user = user;
     }
 
-    public List<Image> getImagesList() {
-        return imagesList;
+    public List<Image> getImageList() {
+        return imageList;
     }
 
-    public void setImagesList(List<Image> imagesList) {
-        this.imagesList = imagesList;
+    public void setImageList(List<Image> imageList) {
+        this.imageList = imageList;
+    }
+
+    public Date getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
     }
 }

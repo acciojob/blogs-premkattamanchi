@@ -21,9 +21,9 @@ public class ImageService {
         Image image=new Image(dimensions,description,blog);
 
         //adding image in the parent entity list Blog
-        List<Image> list=blog.getImagesList();
+        List<Image> list=blog.getImageList();
         list.add(image);
-        blog.setImagesList(list);
+        blog.setImageList(list);
 
         blogRepository2.save(blog);
         return image;

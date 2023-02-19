@@ -30,9 +30,9 @@ public class BlogService {
         blog.setUser(user);
 
         //setting bi-directional mapping in parent entity User
-        List<Blog> list=user.getBlogsList();
+        List<Blog> list=user.getBlogList();
         list.add(blog);
-        user.setBlogsList(list);
+        user.setBlogList(list);
 
         userRepository1.save(user);// child entity blog will also be saved due to cascading effect
         return blog;
