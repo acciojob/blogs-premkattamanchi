@@ -42,15 +42,15 @@ public class ImageService {;
     public int countImagesInScreen(Integer id, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         Image image=imageRepository2.findById(id).get();
-        String imageDimensions=image.getDimensions();
-        String[] screen_arr=screenDimensions.split("x");
-        String[] image_arr=imageDimensions.split("x");
-        int count=0;
-        int x=Integer.parseInt(screen_arr[0])/Integer.parseInt(image_arr[0]);
-        int y=Integer.parseInt(screen_arr[1])/Integer.parseInt(image_arr[1]);
-        count=x*y;
-        return count;
-        /*String dimensions = image.getDimensions();
+//        String imageDimensions=image.getDimensions();
+//        String[] screen_arr=screenDimensions.split("x");
+//        String[] image_arr=imageDimensions.split("x");
+//        int count=0;
+//        int x=Integer.parseInt(screen_arr[0])/Integer.parseInt(image_arr[0]);
+//        int y=Integer.parseInt(screen_arr[1])/Integer.parseInt(image_arr[1]);
+//        count=x*y;
+//        return count;
+        String dimensions = image.getDimensions();
         int xi = 0;
         int yi = 0;
         int xs = 0;
@@ -79,6 +79,6 @@ public class ImageService {;
         ys = num;
 
         int ans = (int) (Math.floor(((double)xs)/((double)xi)) * Math.floor(((double)ys)/((double)yi)));
-        return ans;*/
+        return ans;
     }
 }
