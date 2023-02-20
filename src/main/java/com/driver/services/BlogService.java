@@ -28,13 +28,10 @@ public class BlogService {
 
         //saving foreign key in Blog entity
         blog.setUser(user);
-
-        if(user!=null){
             //setting bi-directional mapping in parent entity Use
             List<Blog> list=user.getBlogList();
             list.add(blog);
             user.setBlogList(list);
-        }
         userRepository1.save(user);// child entity blog will also be saved due to cascading effect
         return blog;
     }
