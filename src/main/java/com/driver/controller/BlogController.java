@@ -12,8 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/blogs")
 public class BlogController {
-  //@Autowired
-  BlogService blogService=new BlogService();
+  @Autowired
+  BlogService blogService;
     @PostMapping("/create")
     public ResponseEntity<Blog> createBlog(@RequestParam Integer userId ,
                                      @RequestParam String title,
