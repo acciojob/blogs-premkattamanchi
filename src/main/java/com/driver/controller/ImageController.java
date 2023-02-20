@@ -14,10 +14,10 @@ public class ImageController {
     @Autowired
     ImageService imageService;
     @PostMapping("/{blogId}/add-image")
-    public ResponseEntity<String> addImage(@PathVariable int blogId, @RequestParam String description, @RequestParam String dimensions) {
+    public ResponseEntity<Image> addImage(@PathVariable int blogId, @RequestParam String description, @RequestParam String dimensions) {
         // Add image into the give blog
-        imageService.addImage(blogId,description,dimensions);
-        return new ResponseEntity<>("Added image successfully", HttpStatus.OK);
+        Image image=imageService.addImage(blogId,description,dimensions);
+        return new ResponseEntity<>(image, HttpStatus.OK);
     }
 
     @GetMapping("/countImagesInScreen/{id}/{screenDimensions}")
