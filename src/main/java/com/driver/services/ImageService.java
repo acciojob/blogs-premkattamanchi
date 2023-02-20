@@ -3,12 +3,17 @@ package com.driver.services;
 import com.driver.models.*;
 import com.driver.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class ImageService {
+public class ImageService {;
 
     @Autowired
     BlogRepository blogRepository2;
@@ -38,9 +43,14 @@ public class ImageService {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         Image image=imageRepository2.findById(id).get();
         String imageDimensions=image.getDimensions();
-        int i=Integer.parseInt(imageDimensions.substring(0,1))*Integer.parseInt(imageDimensions.substring(2));
-        int s=Integer.parseInt(screenDimensions.substring(0,1))*Integer.parseInt(screenDimensions.substring(2));
-
-        return s/i;
+        String[] screen_arr=screenDimensions.split("x");
+        String[] image_arr=imageDimensions.split("x");
+        int count=0;
+        if(screen_arr.length==1 || image_arr.length==1)
+            return 0;
+        int x=Integer.parseInt(screen_arr[0])/Integer.parseInt(image_arr[0]);
+        int y=Integer.parseInt(screen_arr[1])/Integer.parseInt(image_arr[1]);
+        count=x*y;
+        return count;
     }
 }
