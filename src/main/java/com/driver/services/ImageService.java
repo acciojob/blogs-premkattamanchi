@@ -15,10 +15,250 @@ import java.util.Optional;
 @Service
 public class ImageService {;
 
-    @Autowired
-    BlogRepository blogRepository2;
-    @Autowired
-    ImageRepository imageRepository2;
+//    @Autowired
+    BlogRepository blogRepository2=new BlogRepository() {
+        @Override
+        public List<Blog> findAll() {
+            return null;
+        }
+
+        @Override
+        public List<Blog> findAll(Sort sort) {
+            return null;
+        }
+
+        @Override
+        public List<Blog> findAllById(Iterable<Integer> iterable) {
+            return null;
+        }
+
+        @Override
+        public <S extends Blog> List<S> saveAll(Iterable<S> iterable) {
+            return null;
+        }
+
+        @Override
+        public void flush() {
+
+        }
+
+        @Override
+        public <S extends Blog> S saveAndFlush(S s) {
+            return null;
+        }
+
+        @Override
+        public void deleteInBatch(Iterable<Blog> iterable) {
+
+        }
+
+        @Override
+        public void deleteAllInBatch() {
+
+        }
+
+        @Override
+        public Blog getOne(Integer integer) {
+            return null;
+        }
+
+        @Override
+        public <S extends Blog> List<S> findAll(Example<S> example) {
+            return null;
+        }
+
+        @Override
+        public <S extends Blog> List<S> findAll(Example<S> example, Sort sort) {
+            return null;
+        }
+
+        @Override
+        public Page<Blog> findAll(Pageable pageable) {
+            return null;
+        }
+
+        @Override
+        public <S extends Blog> S save(S s) {
+            return null;
+        }
+
+        @Override
+        public Optional<Blog> findById(Integer integer) {
+            return Optional.empty();
+        }
+
+        @Override
+        public boolean existsById(Integer integer) {
+            return false;
+        }
+
+        @Override
+        public long count() {
+            return 0;
+        }
+
+        @Override
+        public void deleteById(Integer integer) {
+
+        }
+
+        @Override
+        public void delete(Blog blog) {
+
+        }
+
+        @Override
+        public void deleteAll(Iterable<? extends Blog> iterable) {
+
+        }
+
+        @Override
+        public void deleteAll() {
+
+        }
+
+        @Override
+        public <S extends Blog> Optional<S> findOne(Example<S> example) {
+            return Optional.empty();
+        }
+
+        @Override
+        public <S extends Blog> Page<S> findAll(Example<S> example, Pageable pageable) {
+            return null;
+        }
+
+        @Override
+        public <S extends Blog> long count(Example<S> example) {
+            return 0;
+        }
+
+        @Override
+        public <S extends Blog> boolean exists(Example<S> example) {
+            return false;
+        }
+    };
+//    @Autowired
+    ImageRepository imageRepository2=new ImageRepository() {
+    @Override
+    public List<Image> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<Image> findAll(Sort sort) {
+        return null;
+    }
+
+    @Override
+    public List<Image> findAllById(Iterable<Integer> iterable) {
+        return null;
+    }
+
+    @Override
+    public <S extends Image> List<S> saveAll(Iterable<S> iterable) {
+        return null;
+    }
+
+    @Override
+    public void flush() {
+
+    }
+
+    @Override
+    public <S extends Image> S saveAndFlush(S s) {
+        return null;
+    }
+
+    @Override
+    public void deleteInBatch(Iterable<Image> iterable) {
+
+    }
+
+    @Override
+    public void deleteAllInBatch() {
+
+    }
+
+    @Override
+    public Image getOne(Integer integer) {
+        return null;
+    }
+
+    @Override
+    public <S extends Image> List<S> findAll(Example<S> example) {
+        return null;
+    }
+
+    @Override
+    public <S extends Image> List<S> findAll(Example<S> example, Sort sort) {
+        return null;
+    }
+
+    @Override
+    public Page<Image> findAll(Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public <S extends Image> S save(S s) {
+        return null;
+    }
+
+    @Override
+    public Optional<Image> findById(Integer integer) {
+        return Optional.empty();
+    }
+
+    @Override
+    public boolean existsById(Integer integer) {
+        return false;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(Integer integer) {
+
+    }
+
+    @Override
+    public void delete(Image image) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Image> iterable) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
+    public <S extends Image> Optional<S> findOne(Example<S> example) {
+        return Optional.empty();
+    }
+
+    @Override
+    public <S extends Image> Page<S> findAll(Example<S> example, Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public <S extends Image> long count(Example<S> example) {
+        return 0;
+    }
+
+    @Override
+    public <S extends Image> boolean exists(Example<S> example) {
+        return false;
+    }
+};
 
     public Image addImage(Integer blogId, String description, String dimensions){
         //add an image to the blog
@@ -35,8 +275,7 @@ public class ImageService {;
     }
 
     public void deleteImage(Integer id){
-        if(imageRepository2.findById(id).get()!=null)
-           imageRepository2.deleteById(id);
+            imageRepository2.deleteById(id);
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
