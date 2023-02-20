@@ -17,7 +17,7 @@ public class  Blog{
     private int id;
     private String title;
     private String content;
-    @CreationTimestamp
+    @CreationTimestamp // it wont be created in online database,we should manually pass the Date Object.
     private Date pubDate;
 
     //creating foreign key for parent table User

@@ -21,14 +21,14 @@ public class BlogService {
     @Autowired
     UserRepository userRepository1;
 
-    public Blog createAndReturnBlog(Integer userId, String title, String content)throws Exception {
+    public Blog createAndReturnBlog(Integer userId, String title, String content){
         //create a blog at the current time
         Blog blog=new Blog(title,content);
         User user=userRepository1.findById(userId).get();
-//
-//        blog.setTitle(title);
-//        blog.setContent(content);
-//        blog.setPubDate(new Date());
+
+        blog.setTitle(title);
+        blog.setContent(content);
+        blog.setPubDate(new Date());
 
         //saving foreign key in Blog entity
         blog.setUser(user);
